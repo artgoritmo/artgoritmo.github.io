@@ -78,4 +78,18 @@
 	.pt-home .social {
 		right: 10px !important;	
 	}
+	
+	style-options .toggle-btn {
+	    position: absolute;
+	    top: 0px;
+	    left: -40px;
+	    height: 40px;
+	    width: 40px;
+	    text-align: center;
+	    background-color: #fff;
+	    border-radius: 10px 0 0 30px;
+	    border-right: none;
+	    cursor: pointer;
+	}
+	
 }
