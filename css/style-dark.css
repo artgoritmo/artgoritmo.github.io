@@ -2562,6 +2562,13 @@ blockquote span img {
 }
 
 @media screen and (max-width: 768px) {
+	
+	.style-options .toggle-btn {
+	    top: 150px;
+	}
+	.social{
+		margin-top:30px;
+	}
 	.page {
 		width: 100%;
 	}
