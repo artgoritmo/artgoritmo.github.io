@@ -1,9 +1,12 @@
 $(function() {
 
     $('.style-options').addClass('active');
+    $('.header-main').addClass('on');
+	
     setTimeout(function(){
         $('.style-options').removeClass('active');
-    }, 3000);
+	$('.header-main').removeClass('on');
+    }, 3500);
 
     $('.style-options .toggle-btn').on('click', function() {
         $('.style-options').toggleClass('active');
