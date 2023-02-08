@@ -10,9 +10,9 @@ $(document).ready(function() {
 		size: '40px', // Tamaño del icono
 		//backgroundColor: '#00000', // Color de fondo del botón
 		position: "right", // Posición del icono
-		avatar: 'https://www.w3schools.com/howto/img_avatar.png', // URL imagen avatar
+		avatar: 'img/artx.png', // URL imagen avatar
 		avatarName: 'Arthur Villavicencio', // Nombre del avatar
-		avatarRole: 'Soporte', // Rol del avatar
+		avatarRole: 'ISC', // Rol del avatar
 		//autoOpenTimeout: 3000,
 		zIndex: '99999',
 	  });
