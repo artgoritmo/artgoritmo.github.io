@@ -3,7 +3,7 @@ $(function() {
     $('.style-options').addClass('active');
     setTimeout(function(){
         $('.style-options').removeClass('active');
-    }, 2000);
+    }, 3000);
 
     $('.style-options .toggle-btn').on('click', function() {
         $('.style-options').toggleClass('active');
