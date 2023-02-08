@@ -63,7 +63,8 @@
 }
 .floating-wpp .floating-wpp-popup.active .floating-wpp-message {
     opacity: 1;
-    transition-delay: .2s
+    transition-delay: .2s;
+    color: #000;
 }
 .floating-wpp .floating-wpp-popup .floating-wpp-head {
     text-align: right;
