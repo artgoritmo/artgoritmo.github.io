@@ -12,7 +12,7 @@ $(document).ready(function() {
 		position: "right", // Posición del icono
 		avatar: 'img/artx.png', // URL imagen avatar
 		avatarName: 'Arthur Villavicencio', // Nombre del avatar
-		avatarRole: 'ISC', // Rol del avatar
+		avatarRole: 'Software Developer', // Rol del avatar
 		//autoOpenTimeout: 3000,
 		zIndex: '99999',
 	  });
