@@ -63,7 +63,7 @@ a:focus,
 	border: 1px solid #00a3e1 !important;
 }
 
-.pt-home .lang ul li a.active {
+.pt-home .lang ul li a.active h1 {
 	border-bottom: 1px solid #00a3e1 !important;
 }
 
