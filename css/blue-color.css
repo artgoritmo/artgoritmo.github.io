@@ -63,8 +63,12 @@ a:focus,
 	border: 1px solid #00a3e1 !important;
 }
 
-.pt-home h1:before .lang ul li a.active {
+.pt-home .lang ul li a.active {
 	border-bottom: 1px solid #00a3e1 !important;
+}
+
+h1{
+	color: 1px solid #00a3e1 !important;
 }
 
 .page .header-page span:before,
