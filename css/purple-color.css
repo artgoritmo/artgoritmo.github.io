@@ -67,6 +67,10 @@ a:focus,
 	border-bottom: 1px solid #bb68c8 !important;
 }
 
+h1{
+	color: #bb68c8 !important;
+}
+
 .page .header-page span:before,
 .page .header-page span:after,
 .pt-resume .experience .main h4:before,
