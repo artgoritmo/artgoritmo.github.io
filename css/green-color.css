@@ -72,7 +72,7 @@ h1{
 }
 
 .imgW{
-	content: url(img/whatsapp.png)!important;
+	content: url(../img/whatsapp.png)!important;
 }
 
 .page .header-page span:before,
