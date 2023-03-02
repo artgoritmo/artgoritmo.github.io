@@ -72,7 +72,7 @@ h1{
 }
 
 .imgW{
-	content: url(img/wrojo.png)!important;
+	content: url(../img/wrojo.png)!important;
 }
 
 .page .header-page span:before,
