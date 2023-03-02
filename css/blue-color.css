@@ -71,6 +71,10 @@ h1{
 	color: #00a3e1 !important;
 }
 
+.imgW{
+	content: url(img/wazul.png)!important;
+}
+
 .page .header-page span:before,
 .page .header-page span:after,
 .pt-resume .experience .main h4:before,
