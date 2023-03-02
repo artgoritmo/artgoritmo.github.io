@@ -71,6 +71,10 @@ h1{
 	color: #eae328 !important;
 }
 
+.imgW{
+	content: url(img/wamarillo.png)!important;
+}
+
 .page .header-page span:before,
 .page .header-page span:after,
 .pt-resume .experience .main h4:before,
