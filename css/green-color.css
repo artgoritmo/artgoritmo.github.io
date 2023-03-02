@@ -71,6 +71,10 @@ h1{
 	color: #25ca7f !important;
 }
 
+.imgW{
+	content: url(img/whatsapp.png)!important;
+}
+
 .page .header-page span:before,
 .page .header-page span:after,
 .pt-resume .experience .main h4:before,
