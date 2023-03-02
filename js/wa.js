@@ -6,7 +6,7 @@ $(document).ready(function() {
 		showPopup: true, // Habilita el pop up
 		headerTitle: 'WhatsApp Chat', // Título del header
 		headerColor: '#25D366', // Color del header
-		buttonImage: '<img src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/whatsapp.svg" />', // Icono WhatsApp
+		buttonImage: '<img class="imgW" src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/whatsapp.svg" />', // Icono WhatsApp
 		size: '40px', // Tamaño del icono
 		//backgroundColor: '#00000', // Color de fondo del botón
 		position: "right", // Posición del icono
@@ -156,5 +156,7 @@ $(document).ready(function() {
         )(navigator.userAgent||navigator.vendor||window.opera);
         return d
     }
+
+    
 }
 (jQuery));
