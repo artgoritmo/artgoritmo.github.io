@@ -266,3 +266,9 @@ function initMap() {
         title: "We are here!"
     });
 }
+
+const warningTitleCSS = 'color:red; font-size:40px; font-weight: bold; -webkit-text-stroke: 1px black;';
+    const warningDescCSS = 'font-size: 14px;';
+    console.log('%c⚠️Stop!🚫', warningTitleCSS);
+    console.log("%cEsta es una función del navegador destinada a desarrolladores. Si alguien le dijo que copiara y pegara algo aquí para habilitar una función de este sitio, es una estafa.", warningDescCSS);
+    console.log('%cConsulte https://blapeer.blogspot.com/p/privacidad.html/ para obtener más información.', warningDescCSS);
