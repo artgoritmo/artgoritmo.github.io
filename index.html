@@ -1,1451 +1,371 @@
 <!DOCTYPE html>
-<html lang="en">
     <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="keywords" content="css3, css-only, fullscreen, background, slideshow, images, content" />
+        <link rel="stylesheet" type="text/css" href="https://tympanus.net/Tutorials/CSS3FullscreenSlideshow/css/demo.css" />
 
-		<!-- Meta -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	    <meta content='https://artgoritmo.github.io/' property='og:url'/>
-<meta content='Arthur Villavicencio' property='og:title'/>
-<meta content='💻 Software Developer 🇲🇽' property='og:description'/>
-<meta content='https://artgoritmo.github.io/img/logo2.png' property='og:image'/>
+<style>
 
-		<title>Arthur</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.css">
-		<link rel="stylesheet" href="css/simplebar.css">
-		<link rel="stylesheet" href="css/jquery.animatedheadline.css">
-        <link rel="stylesheet" class="theme-st" href="css/style-dark.css">
-		<link rel="stylesheet" class="pos-nav" href="css/left-nav.css" />
-
-		<link rel="stylesheet" class="box-st" href="css/circle.css" />
-
-		<link rel="stylesheet" class="style-cl" href="css/style-dark.css" />
-		<link rel="stylesheet" href="css/style-demo.css">
-		<link rel="stylesheet" href="css/style.css">
-	    <link rel="stylesheet" href="css/wa.css">
-		<link rel="shortcut icon" href="img/logo.png"> 
-
-
-
-		<link rel="stylesheet" type="text/css" href="css/slick.css">
-	    
-	    <style>
-
-.slicknav_menu {
-	padding: 0;
-    background: transparent;
-}
-.slicknav_menu a.active,
-.mainmenu ul li a:hover,
-.mainmenu ul li a.active {
-    border: 1px solid #fff;
-}
-.mainmenu {
-    display: block;
-}
-.slicknav_menu {
-	display: none;
-}
-.header.sticky {
-	border-bottom: 1px solid #fff;
-	background: #000529; /* Old browsers */
-	background: -moz-linear-gradient(left, #000529 1%, #002055 24%, #005db5 67%, #0074d9 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left, #000529 1%,#002055 24%,#005db5 67%,#0074d9 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right, #000529 1%,#002055 24%,#005db5 67%,#0074d9 100%);
-}
-.header.sticky {
-	padding: 10px 0;
-}
-.mainmenu li a.appao-btn {
-	margin-left: 55px;
+img{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.screenshots-area .sec-title {
-    margin-bottom: 15px;
+.cb-slideshow li span {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+	-webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 36s linear infinite 0s;
+    -moz-animation: imageAnimation 36s linear infinite 0s;
+    -o-animation: imageAnimation 36s linear infinite 0s;
+    -ms-animation: imageAnimation 36s linear infinite 0s;
+    animation: imageAnimation 36s linear infinite 0s;
 }
-.screenshot-wrap .slick-list {
-	padding-bottom: 90px !important;
-	padding-top: 80px !important;
+.cb-slideshow li div {
+    z-index: 1000;
+    position: fixed;
+    bottom: 10px;
+    left: 0px;
+    width: 100%;
+    text-align: right;
+    opacity: 0;
+    -webkit-animation: titleAnimation 36s linear infinite 0s;
+    -moz-animation: titleAnimation 36s linear infinite 0s;
+    -o-animation: titleAnimation 36s linear infinite 0s;
+    -ms-animation: titleAnimation 36s linear infinite 0s;
+    animation: titleAnimation 36s linear infinite 0s;
 }
-.single-screenshot.slick-slide {
-	z-index: 1;
+.cb-slideshow li div h5 {
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    padding: 0 30px;
+    line-height: 120px;
+    color: rgba(252, 252, 252, 0.473);
 }
-.single-screenshot.slick-active {
-	-webkit-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	transform: scale(1.1);
-	z-index: 2;
-	transition: all 0.3s ease-in 0s;
+.cb-slideshow li:nth-child(1) span { background-image: url(img/galaxia.png) }
+.cb-slideshow li:nth-child(2) span {
+    background-image: url(img/universo.png);
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s;
 }
-.single-screenshot.slick-center {
-	position: relative;
-	-webkit-transform: scale(1.25);
-	-ms-transform: scale(1.25);
-	transform: scale(1.25);
-	z-index: 3;
-	transition: all 0.3s ease-in 0s;
+.cb-slideshow li:nth-child(3) span {
+    background-image: url(img/luna.png);
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s;
 }
-.single-screenshot img {
-	width: 100%;
+.cb-slideshow li:nth-child(4) span {
+    background-image: url(img/galaxia.png);
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s;
 }
-.slick-dots {
-	text-align: center;
-	margin-top: 10px;
+.cb-slideshow li:nth-child(5) span {
+    background-image: url(img/universo.png);
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s;
 }
-.slick-dots li.slick-active button {
-    background-color: #0074da;
+.cb-slideshow li:nth-child(6) span {
+    background-image: url(img/luna.png);
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s;
 }
-.slick-dots li {
-    display: inline-block;
+.cb-slideshow li:nth-child(2) div {
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s;
 }
-.slick-dots li button {
-    background: transparent;
-    border: 2px solid #0074da;
-    border-radius: 100%;
-    font-size: 0;
-    margin: 0 3px;
-    padding: 0;
-	cursor: pointer;
-    width: 15px;
-    height: 15px;
-    display: inline-block;
+.cb-slideshow li:nth-child(3) div {
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s;
 }
-.single-screenshot.slick-center {
-    background-image: url(img/mockup.png);
-    background-size: 100% 100%;
+.cb-slideshow li:nth-child(4) div {
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s;
 }
-.single-screenshot.slick-center img {
-    padding: 35px 20px 55px;
+.cb-slideshow li:nth-child(5) div {
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s;
 }
-
-
-
-
-
-		</style>
-		<!-- Responsive CSS -->
-		<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" />
-
-
+.cb-slideshow li:nth-child(6) div {
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s;
+}
+@-webkit-keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    -webkit-animation-timing-function: ease-in;
+	}
+	8% {
+	    opacity: 1;
+	    -webkit-transform: scale(1.05);
+	    -webkit-animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	    -webkit-transform: scale(1.1) rotate(3deg);
+	}
+	25% {
+	    opacity: 0;
+	    -webkit-transform: scale(1.1) rotate(3deg);
+	}
+	100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    -moz-animation-timing-function: ease-in;
+	}
+	8% {
+	    opacity: 1;
+	    -moz-transform: scale(1.05);
+	    -moz-animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	    -moz-transform: scale(1.1) rotate(3deg);
+	}
+	25% {
+	    opacity: 0;
+	    -moz-transform: scale(1.1) rotate(3deg);
+	}
+	100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    -o-animation-timing-function: ease-in;
+	}
+	8% {
+	    opacity: 1;
+	    -o-transform: scale(1.05);
+	    -o-animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	    -o-transform: scale(1.1) rotate(3deg);
+	}
+	25% {
+	    opacity: 0;
+	    -o-transform: scale(1.1) rotate(3deg);
+	}
+	100% { opacity: 0 }
+}
+@-ms-keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    -ms-animation-timing-function: ease-in;
+	}
+	8% {
+	    opacity: 1;
+	    -ms-transform: scale(1.05);
+	    -ms-animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	    -ms-transform: scale(1.1) rotate(3deg);
+	}
+	25% {
+	    opacity: 0;
+	    -ms-transform: scale(1.1) rotate(3deg);
+	}
+	100% { opacity: 0 }
+}
+@keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    animation-timing-function: ease-in;
+	}
+	8% {
+	    opacity: 1;
+	    transform: scale(1.05);
+	    animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	    transform: scale(1.1) rotate(3deg);
+	}
+	25% {
+	    opacity: 0;
+	    transform: scale(1.1) rotate(3deg);
+	}
+	100% { opacity: 0 }
+}
+@-webkit-keyframes titleAnimation { 
+	0% {
+	    opacity: 0;
+	    -webkit-transform: translateX(200px);
+	}
+	8% {
+	    opacity: 1;
+	    -webkit-transform: translateX(0px);
+	}
+	17% {
+	    opacity: 1;
+	    -webkit-transform: translateX(0px);
+	}
+	19% {
+	    opacity: 0;
+	    -webkit-transform: translateX(-400px);
+	}
+	25% { opacity: 0 }
+	100% { opacity: 0 }
+}
+@-moz-keyframes titleAnimation { 
+	0% {
+	    opacity: 0;
+	    -moz-transform: translateX(200px);
+	}
+	8% {
+	    opacity: 1;
+	    -moz-transform: translateX(0px);
+	}
+	17% {
+	    opacity: 1;
+	    -moz-transform: translateX(0px);
+	}
+	19% {
+	    opacity: 0;
+	    -moz-transform: translateX(-400px);
+	}
+	25% { opacity: 0 }
+	100% { opacity: 0 }
+}
+@-o-keyframes titleAnimation { 
+	0% {
+	    opacity: 0;
+	    -o-transform: translateX(200px);
+	}
+	8% {
+	    opacity: 1;
+	    -o-transform: translateX(0px);
+	}
+	17% {
+	    opacity: 1;
+	    -o-transform: translateX(0px);
+	}
+	19% {
+	    opacity: 0;
+	    -o-transform: translateX(-400px);
+	}
+	25% { opacity: 0 }
+	100% { opacity: 0 }
+}
+@-ms-keyframes titleAnimation { 
+	0% {
+	    opacity: 0;
+	    -ms-transform: translateX(200px);
+	}
+	8% {
+	    opacity: 1;
+	    -ms-transform: translateX(0px);
+	}
+	17% {
+	    opacity: 1;
+	    -ms-transform: translateX(0px);
+	}
+	19% {
+	    opacity: 0;
+	    -ms-transform: translateX(-400px);
+	}
+	25% { opacity: 0 }
+	100% { opacity: 0 }
+}
+@keyframes titleAnimation { 
+	0% {
+	    opacity: 0;
+	    transform: translateX(200px);
+	}
+	8% {
+	    opacity: 1;
+	    transform: translateX(0px);
+	}
+	17% {
+	    opacity: 1;
+	    transform: translateX(0px);
+	}
+	19% {
+	    opacity: 0;
+	    transform: translateX(-400px);
+	}
+	25% { opacity: 0 }
+	100% { opacity: 0 }
+}
+/* Show at least something when animations not supported */
+.no-cssanimations .cb-slideshow li span{
+	opacity: 1;
+}
+@media screen and (max-width: 1140px) { 
+	.cb-slideshow li div h5 { font-size: 20px }
+    h5 { font-size: 50px }
+    img{
+    width: 100%;
+}
+}
+@media screen and (max-width: 600px) { 
+	.cb-slideshow li div h5 { font-size: 20px }
+    h5 { font-size: 50px }
+    img{
+    width: 100%;
+}
+}
+</style>
 
     </head>
-    <body class="audio-off">
-	    
-	    	<div id="WABoton"></div>
-		<div class="style-options active">
-            <div class="toggle-btn">
-                <span><i class="fas fa-cog"></i></span>
-            </div>
-            <div class="style-menu">
-				<div class="style-color">
-                    <h4 class="mt-55 mb-10">Color del Tema</h4>
-                    <ul>
-                        <li><a href="css/style-dark.css" style="background-color: #fff; border: 1px solid black;"></a></li>
-			<li><a href="css/blue-color.css" style="background-color: #00a3e1;"></a></li>
-                        <li><a href="css/red-color.css" style="background-color: #d94c48;"></a></li>
-                        <li><a href="css/purple-color.css" style="background-color: #bb68c8;"></a></li>
-		        <li><a href="css/green-color.css" style="background-color: #25ca7f;"></a></li>
-                        <li><a href="css/yellow-color.css" style="background-color: #eae328;"></a></li>
-                    </ul>
-                </div>
-            </div>
+    <body id="page">
+        <ul class="cb-slideshow">
+            <li><span>Image 01</span><div><h5>Nuestro sitio web esta en construcción, estamos trabajando muy duro para brindarte una mejor experiencia.</h5></div></li>
+            <li><span>Image 02</span><div><h5>Nuestro sitio web esta en construcción, estamos trabajando muy duro para brindarte una mejor experiencia.</h5></div></li>
+            <li><span>Image 03</span><div><h5>Nuestro sitio web esta en construcción, estamos trabajando muy duro para brindarte una mejor experiencia.</h5></div></li>
+            <li><span>Image 04</span><div><h5>Nuestro sitio web esta en construcción, estamos trabajando muy duro para brindarte una mejor experiencia.</h5></div></li>
+            <li><span>Image 05</span><div><h5>Nuestro sitio web esta en construcción, estamos trabajando muy duro para brindarte una mejor experiencia.</h5></div></li>
+            <li><span>Image 06</span><div><h5>Nuestro sitio web esta en construcción, estamos trabajando muy duro para brindarte una mejor experiencia.</h5></div></li>
+        </ul>
+        <div class="container">
+            <header>
+                <h2>En construcción...</h2>
+            </header>
+            <center><img src="img/pattern.gif" width="40%" alt=""></center> 
         </div>
-		<div id="preloader">
-  			<div class="loading-area">
-    			<div class="circle"></div>
-  			</div>
-  			<div class="left-side"></div>
-  			<div class="right-side"></div>
-		</div>
-		<div id="home">
-  		<div id="about">
-    	<div id="resume">
-     	<div id="portfolio">
-        <div id="blog">
-		<div id="contact">
 
-			<div class="header-mobile">
-                <a class="header-toggle"><i class="fas fa-bars"></i></a>
-                <h2>Menu</h2>
-            </div>
-
-			<nav class="header-main" data-simplebar >
-
-				<div class="logo">
-            		<a href=""><img src="img/logo2.png" alt="" width="70%"></a>
-            	</div>
-
-          		<ul>
-					<li data-tooltip="Inicio" data-position="top">
-						<a href="#home" class="icon fas fa-house-damage"></a>
-					</li>
-					<li data-tooltip="Conoceme" data-position="top">
-            			<a href="#about" class="icon fas fa-user-tie"></a>
-					</li>
-					<li data-tooltip="Resumen" data-position="top">
-            			<a href="#resume" class="icon fas fa-address-book"></a>
-					</li>
-					<li data-tooltip="Portafolio" data-position="top">
-            			<a href="#portfolio" class="icon fas fa-briefcase"></a>
-					</li>
-<!--
-					<li data-tooltip="Blogs" data-position="top">
-            			<a href="#blog" class="icon fas fa-receipt"></a>
-					</li>
--->
-					<li data-tooltip="Contacto" data-position="bottom">
-						<a href="#contact" class="icon fas fa-envelope"></a>
-					</li>
-          		</ul>
-
-    			<a class="music-bg" >
-      				<div class="lines">
-        				<span></span>
-        				<span></span>
-        				<span></span>
-        				<span></span>
-						<span></span>
-						<span></span>
-      				</div>
-					<p> Sound </p>
-    			</a>
-			 </nav>
-
-          	<div class="pt-home" style="background-image: url('img/home-bg.jpg')">
-             	<section>
-					<div class="banner">
-  						<h1 >Arthur Villavicencio</h1>
-						<p class="cd-headline rotate-1">
-							<span></span>
-							<span class="cd-words-wrapper">
-								<b class="is-visible">Analista</b>
-								<b>Programador</b>
-								<b>Diseñador</b>
-								<b>Freelancer</b>
-								<b>Creador de contenido</b>
-							</span>
-						</p>
-					</div>
-
-					<div class="lang">
-                		<ul>
-                   			<li><a  class="active">by Arturo Morales Villavicencio</a></li>
-                    		
-                		</ul>
-            		</div>
-
-					<div class="social">
-            			<ul class="ulsocial">
-                			<li><a ><i class="fab fa-facebook-f"></i></a></li>
-                			<li><a ><i class="fab fa-twitter"></i></a></li>
-                			<li><a ><i class="fab fa-instagram"></i></a></li>
-							<li><a ><i class="fab fa-youtube"></i></a></li>
-            			</ul>
-        			</div>
-			  	</section>
-          	</div>
-
-			<div class="page pt-about" data-simplebar>
-				<section class="container">
-					
-					<div class="header-page mt-70 mob-mt">
-						<h2>Conoceme</h2>
-						<span></span>
-					</div>
-				
-					<div class="row mt-100">
-					
-						<div class="col-lg-12 col-sm-12">
-    						<div class="info box">
-								<div class="row">
-									<div class="col-lg-3 col-sm-4">
-										<div class="photo">
-											<img alt="" src="img/artx.png">		
-										</div>	
-									</div>
-									<div class="col-lg-9 col-sm-8">
-										<h4>Arthur Villavicencio</h4>
-										<div class="loc">
-											<i class="fas fa-map-marked-alt"></i> Veracruz, México
-										</div>
-										<p align="justify">Hola, soy Arturo Villavicencio, un empresario y programador Mexicano. 
-											Me gusta desarrollar herramientas tecnológicas y aprender nuevos conocimientos esenciales, 
-											Manejo diversas plataformas de programación, creo sitios web y aplicaciones móviles 
-											con un gran diseño. He trabajado con varias empresas y pequeños negocios para la 
-											creación de Sitios Web de calidad y aplicaciones móviles.
-										</p>
-										
-									</div>									
-
-									<!-- Icon Info -->
-									<div class="col-lg-3 col-sm-4">
-                                		<div class="info-icon">
-                                     		<i class="fas fa-award"></i>
-                                     		<div class="desc-icon">
-												<h6>6 Años</h6>
-                                            	<p>Experiencia</p>
-                                       		</div>
-                                		</div>
-                                	</div>
-									
-									<!-- Icon Info -->
-									<div class="col-lg-3 col-sm-4">
-                                		<div class="info-icon">
-                                     		<i class="fas fa-certificate"></i>
-                                     		<div class="desc-icon">
-												<h6>10+ Proyectos</h6>
-                                            	<p>Completos</p>
-                                      		</div>
-                                		</div>
-                                	</div>
-									
-									<!-- Icon Info -->
-									<div class="col-lg-3 col-sm-4">
-                                		<div class="info-icon">
-                                     		<i class="fas fa-user-astronaut"></i>
-                                     		<div class="desc-icon">
-												<h6>Freelancer</h6>
-                                           		<p>Disponible</p>
-                                        	</div>
-                                		</div>
-                                	</div>
-									<div class="col-lg-3 col-sm-4 pt-50">
-                                		<a href="Doc/Curriculum vitae Saul.pdf" download="Curriculum vitae Saul Developer"class="btn-st">Descargar CV</a>
-                                	</div>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<!-- Interests Row Start -->
-					<div class="row mt-100">
-					
-						<!-- Header Block -->
-						<div class="col-md-12">
-							<div class="header-box mb-50">
-								<h3>Habilidades</h3>
-							</div>
-						</div>
-					
-						<div class="col-lg-12 col-sm-12">
-							<div class="box">
-								<div class="row">
-							
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                     		<i class="fas icon-mysql"></i>
-                                    	 	<div class="desc-inter">
-												<h6>Bases de datos</h6>
-                               	        	</div>
-										</div>
-									</div>
-								
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                     		<i class="icon-apachecordova"></i>
-                                     		<div class="desc-inter">
-												<h6>Apache Cordova</h6>
-                                       		</div>
-                                		</div>
-									</div>
-								
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                 	    	<i class="icon-csharp"></i>
-                                  		   	<div class="desc-inter">
-												<h6>Plataforma .Net</h6>
-                                  	     	</div>
-                                		</div>
-									</div>
-								
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                    	 	<i class="icon-bootstrap"></i>
-                                     		<div class="desc-inter">
-												<h6>Diseño Bootstrap</h6>
-                                   	    	</div>
-                                		</div>
-									</div>
-								
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                 	    	<i class="icon-android"></i>
-                                 	    	<div class="desc-inter">
-												<h6>Apps Android</h6>
-                                	       	</div>
-                                		</div>
-									</div>
-									
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-						<i><img src="img/vuetify.png" style=" margin-top: -5px!important; width:45px!important"></i>
-            	                         	<div class="desc-inter">
-												<h6>Vuetify</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-								
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                    	 	<i class="icon-javascript"></i>
-                                     		<div class="desc-inter">
-												<h6>JavaScript</h6>
-                                    	   	</div>
-                                		</div>
-									</div>
-								
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-youtube"></i>
-            	                         	<div class="desc-inter">
-												<h6>Contenido</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-								
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-angular"></i>
-            	                         	<div class="desc-inter">
-												<h6>Angular</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-
-
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-github"></i>
-            	                         	<div class="desc-inter">
-												<h6>Portafolio Git</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-php"></i>
-            	                         	<div class="desc-inter">
-												<h6>Lenguaje PHP</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-ionic"></i>
-            	                         	<div class="desc-inter">
-												<h6>Sdk Ionic</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-html5"></i>
-            	                         	<div class="desc-inter">
-												<h6>Estandar HTML5</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-wordpress"></i>
-            	                         	<div class="desc-inter">
-												<h6>Wordpress</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-arduino"></i>
-            	                         	<div class="desc-inter">
-												<h6>Microcontrolador</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-								
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-firebase"></i>
-            	                         	<div class="desc-inter">
-												<h6>Firebase</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="icon-css3"></i>
-            	                         	<div class="desc-inter">
-												<h6>Diseño CSS</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-				
-					<div class="row mt-100">
-					
-						<div class="col-md-12">
-							<div class="header-box mb-50">
-								<h3>Servicios</h3>
-							</div>
-						</div>
-					
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box mb-40">
-								<i class="fas fa-desktop"></i>
-								<h4>Diseño Web</h4>
-								<p align="justify">Los sitios web que desarrollo son limpios y frescos, cada diseño único y personalizado. Además,
-									 aseguro que todos nuestros sitios cumplan con los estándares 
-									 de accesibilidad exigidos por la World Wide Web Consortium. Nuestros sitios web se
-									  prueban en los navegadores más utilizados en diferentes resoluciones de pantalla.</p>
-							</div>
-						</div>
-
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box mb-40">
-								<i class="fas fa-cogs"></i>
-								<h4>Desarrollo Web </h4>
-								<p align="justify">Ofrezco siempre la opción de desarrollo de sitio web personalizado. 
-									Hoteles, Restaurantes, Dentistas, Gimnasios, Negocios personales etc. 
-									Tenemos amplia experiencia en el desarrollo de sitios y aplicaciones de todo tipo, 
-									complejidades y presupuestos.                                                   </p>
-							</div>
-						</div>
-
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box mb-40">
-								<i class="fas fa-mobile-alt"></i>
-								<h4>Diseño Responsivo</h4>
-								<p align="justify">Presente su sitio en cualquier dispositivo móvil, 
-								sin importar si visita el sitio desde una tableta o desde un celular, 
-								el sitio se ajustará para mostrar la información correctamente,
-								 haciendo que la experiencia del usuario sea única.</p>
-							</div>
-						</div>
-
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box mb-40">
-								<i class="fas fa-medkit"></i>
-								<h4>Actualización de Contenido</h4>
-								<p align="justify">Agregamos increíbles
-									 diseños tanto en interacción como en vista previa del sitio, logos 
-									 de calidad e imágenes muy bien trabajadas para dar la mejor impresión 
-									 en tu sitio web para tus clientes… actualización de contenido web y mas.</p>
-							</div>
-						</div>
-					</div>		
-				
-					<div class="row mt-100 mb-60" style="display:none">
-						
-						<div class="col-md-12">
-							<div class="header-box mb-90">
-								<h3>Paquetes</h3>
-							</div>
-						</div>
-					
-						<div class="col-lg-4 col-sm-12">
-							<div class="price box">
-								<div class="head-price">
-									<i class="fa fa-user"></i>
-									<h4>Básico</h4>
-								</div>
-								<div class="body-price">
-									<div class="price-plan">
-										<span class="currency">MX$</span>
-										<span class="number">2500</span>
-										<span class="period">/pago único</span>
-									</div>
-									<div class="list-price">
-										<ul>
-											<li>• Diseño Web</li>
-											<li>• Desarrollo Web</li>
-											<li>• Enlace a tus redes sociales</li>
-											<li>• Dominio y hosting</li>
-											<li>• Colores de tu identidad o imagen de fondo</li>
-											<li>• 2 Secciones</li>
-											<li class="disable">• Conexion con WhatsApp</li>
-											<li class="disable">• Diseño Responsivo</li>
-											<li class="disable">• Galeria 20 imagenes</li>
-											<li class="disable">• Logo e imagenes Diseñadas para tus redes sociales</li>
-										</ul>
-									</div>
-								</div>
-								<div class="footer-price">
-									<a  class="btn-st">Ejemplo</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-12">
-							<div class="price box">
-								<div class="head-price">
-									<i class="fa fa-briefcase"></i>
-									<h4>Estándar</h4>
-								</div>
-								<div class="body-price">
-									<div class="price-plan">
-										<span class="currency">MX$</span>
-										<span class="number">3500</span>
-										<span class="period">/pago único</span>
-									</div>
-									<div class="list-price">
-										<ul>
-											<li>• Diseño Web</li>
-											<li>• Desarrollo Web</li>
-											<li>• Enlace a tus redes sociales</li>
-											<li>• Dominio y hosting</li>
-											<li>• Colores de tu identidad o imagen de fondo</li>
-											<li>• 4 Secciones</li>
-											<li>• Conexion con WhatsApp</li>
-											<li>• Diseño Responsivo</li>
-											<li>• Galeria 20 imagenes</li>
-											<li class="disable">• Logo e imagenes Diseñadas para tus redes sociales</li>
-											
-										</ul>
-									</div>
-								</div>
-								<div class="footer-price">
-									<a  class="btn-st">Ejemplo</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-12">
-							<div class="price box">
-								<div class="head-price">
-									<i class="fa fa-globe"></i>
-									<h4>Premium</h4>
-								</div>
-								<div class="body-price">
-									<div class="price-plan">
-										<span class="currency">MX$</span>
-										<span class="number">5000</span>
-										<span class="period">/pago único</span>
-									</div>
-									<div class="list-price">
-										<ul>
-											<li>• Diseño Web</li>
-											<li>• Desarrollo Web</li>
-											<li>• Enlace a tus redes sociales</li>
-											<li>• Dominio y hosting</li>
-											<li>• Colores de tu identidad o imagen de fondo</li>
-											<li>• 4 Secciones</li>
-											<li>• Conexion con WhatsApp</li>
-											<li>• Diseño Responsivo</li>
-											<li>• Galeria +20 imagenes</li>
-											<li>• Logo e imagenes Diseñadas para tus redes sociales</li>
-										</ul>
-									</div>
-								</div>
-								<div class="footer-price">
-									<a  class="btn-st">Ejemplo</a>
-								</div>
-							</div>
-						</div>
-					</div>
-			  	</section>
-         	</div>
-			 
-			 <div class="page pt-resume" data-simplebar>
-            	<section class="container">
-					
-					<div class="header-page mt-70 mob-mt">
-						<h2>Resumen</h2>
-    					<span></span>
-					</div>
-					
-					<div class="row mt-100">
-						<div class="col-lg-6 col-sm-12">
-						
-							<div class="header-box mb-50">
-								<h3>Experiencia</h3>
-							</div>
-						
-							<div class="experience box">
-								
-								<div class="item">
-									<div class="main">
-										<h4>Proyectos</h4>
-										<p><i class="far fa-calendar-alt"></i>.Net</p>
-									</div>
-									<p>Utilizando C# .net he desarrollado proyectos para grandes empresas como la administración portuaria de Veracruz y el control de acceso a los recintos, también para el tecnológico de Iztapalapa, Vopak Veracruz, Grupo Logística, Licorera del sur, Comex, entre otras.</p>
-								</div>
-
-								<div class="item">
-									<div class="main">
-										<h4>Diseño y Desarrollo de Apps Moviles</h4>
-										<p><i class="far fa-calendar-alt"></i>Inicios desde el 2017</p>
-									</div>
-									<p>He trabajado en el desarrollo de aplicaciones móviles para empresas como el recinto portuario del estado de Veracruz, Comex, y algunas agencias aduanales, utilizando la plataforma de Apache Cordova</p>
-								</div>
-
-								<div class="item">
-									<div class="main">
-										<h4>Diseño y Desarrollo web</h4>
-										<p><i class="far fa-calendar-alt"></i>Inicios del proyecto desde 2015</p>
-									</div>
-									<p>Tengo experiencia en el diseño y desarrollo web desde los 25 años con las tecnologías HTML, CSS, PHP, y JavaScript, desarrollando proyectos webs para varias empresas y negocios, enfocándome en un diseño de calidad para el cliente.   </p>
-								</div>
-							</div>
-						</div>
-							
-						<div class="col-lg-6 col-sm-12">
-						
-							<div class="header-box mb-50 mob-box-mt">
-								<h3>Educación</h3>
-							</div>
-						
-							<div class="experience box">
-
-								<div class="item">
-									<div class="main">
-										<h4>Ing. En Sistemas Computacionales </h4>
-										<p><i class="far fa-calendar-alt"></i>2009-2014 | ITSCO Cosamaloapan Veracruz</p>
-									</div>
-									<p>Soy egresado del Instituto Tecnológico Superior de Cosamaloapan</p>
-								</div>
-
-								<div class="item" style="display:none">
-									<div class="main">
-										<h4>Técnico Superior en Soporte y Mantenimiento en Equipos de Computo</h4>
-										<p><i class="far fa-calendar-alt"></i>2015-2016 | Vetro</p>
-									</div>
-									<p>Desarrolle competencias de especialización en un campo profesional específico de la carrera, enfocándome tanto en la parte del hardware y software, al igual llevando un poco de desarrollo web con herramientas como .Net, HTML, Javascript y aprendiendo otras tecnologías por mi parte ya que soy autodidacta y me gusta investigar.</p>
-								</div>
-
-								<div class="item">
-									<div class="main">
-										<h4>Informática</h4>
-										<p><i class="far fa-calendar-alt"></i>2005-2006 | Esc. Computación</p>
-									</div>
-									<p>Lleve talleres y materias en informática básica desde la edad de 15 años, Donde adquirí una gran pasión por la informática y la tecnología en general donde me identifique con los ordenadores y todo lo relacionado, desarrollando una gran habilidad de comprensión en el uso de herramientas básicas de software.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-					
-					
-          	<div class="page pt-portfolio" data-simplebar>
-            	<section class="container">
-					
-					<div class="header-page mt-70 mob-mt">
-						<h2>Portafolio</h2>
-    					<span></span>
-					</div>
-					
-					<div class="row mt-100">
-						<div class="col-lg-12 col-sm-12 portfolio-filter">
-							<ul>
-								<li class="active" data-filter="*">Todo</li>
-								<li data-filter=".logos">Logos</li>
-								<li data-filter=".diseños">Diseños</li>
-								<li data-filter=".paginas">Paginas</li>
-								<li data-filter=".apps">Apps</li>
-							</ul>
-						</div>
-					</div>
-					
-					<div class="row portfolio-items mt-100 mb-100">
-					
-						
-
-						<div class="item col-lg-3 col-sm-6 logos">
-							<figure>
-								<img alt="" src="img/logos/art.png">
-								<figcaption>
-									<h3>Logo Arturo</h3>
-									<p>Arturo Villavicencio</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 logos">
-							<figure>
-								<img alt="" src="img/logos/dew.png">
-								<figcaption>
-									<h3>Logo Deweblapper</h3>
-									<p>Deweblapper</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-					
-						<div class="item col-lg-3 col-sm-6 logos">
-							<figure>
-								<img alt="" src="img/logos/blap.png">
-									<figcaption>
-									<h3>Diseño logo Blapeer</h3>
-									<p>Blapeer</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 logos">
-							<figure>
-								<img alt="" src="img/logos/raydar.png">
-									<figcaption>
-									<h3>Diseño logo Raydar</h3>
-									<p>Raydar Company</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 logos">
-							<figure>
-								<img alt="" src="img/logos/bora.png">
-									<figcaption>
-									<h3>Diseño logo Bora</h3>
-									<p>Bora Boutique</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 logos">
-							<figure>
-								<img alt="" src="img/logos/breyt.png">
-									<figcaption>
-									<h3>Diseño logo Breyt</h3>
-									<p>Breyt</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 logos">
-							<figure>
-								<img alt="" src="img/logos/beus.png">
-									<figcaption>
-									<h3>Diseño logo Beus</h3>
-									<p>Beus Autobuces</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 logos">
-							<figure>
-								<img alt="" src="img/logos/bugg.png">
-									<figcaption>
-									<h3>Diseño logo Bugg</h3>
-									<p>Bugg</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 diseños">
-							<figure>
-								<img alt="" src="img/logo2.png">
-								<figcaption>
-									<h3>Diseño Cartel Para Negocio</h3>
-									<p>Diseños</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 diseños">
-							<figure>
-								<img alt="" src="img/logo2.png">
-								<figcaption>
-									<h3>Diseño Fondo Empresas</h3>
-									<p>Diseños</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-					
-				
-
-					
-					
-						<div class="item col-lg-3 col-sm-6 diseños">
-							<figure>
-								<img alt="" src="img/logo2.png">
-									<figcaption>
-									<h3>Cartel Empresas</h3>
-									<p>Diseño</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 diseños">
-							<figure>
-								<img alt="" src="img/logo2.png">
-									<figcaption>
-									<h3></h3>
-									<p>Diseños</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/blap.png" class="imgP">
-									<figcaption>
-									<h3>Blapeer</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/art.png" class="imgP">
-									<figcaption>
-									<h3>Arturo</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/aet.png" class="imgP">
-									<figcaption>
-									<h3>AE Tech</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/autosise.png" class="imgP">
-									<figcaption>
-									<h3>Autosise</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/emi.png" class="imgP">
-									<figcaption>
-									<h3>Emi</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/san.png" class="imgP">
-									<figcaption>
-									<h3>Sansara</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/geocercas.png" class="imgP">
-									<figcaption>
-									<h3>Geocercas</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/a-bella.png" class="imgP">
-									<figcaption>
-									<h3>A-Bella</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/grass.png" class="imgP">
-									<figcaption>
-									<h3>Grasshoper</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/indicadores.png" class="imgP">
-									<figcaption>
-									<h3>Indicadores</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/dew.png" class="imgP">
-									<figcaption>
-									<h3>Deweblapper</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						<div class="item col-lg-3 col-sm-6 paginas">
-							<figure>
-								<img alt="" src="img/paginas/panel.png" class="imgP">
-									<figcaption>
-									<h3>Panel de control</h3>
-									<p>Web</p><i class="fas fa-image"></i>
-									<!--<a class="image-link" ></a>-->
-								</figcaption>
-							</figure>
-						</div>
-
-						
-
-						<div class="item col-lg-12 col-sm-6 apps">
-					
-
-									<!-- screenshots section start -->
-						<section class="screenshots-area ptb-90" id="screenshot">
-							<div class="container">
-								
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="screenshot-wrap">
-											<div class="single-screenshot">
-												<img src="img/apps/artp.jpg" alt="screenshot" />
-											</div>
-											<div class="single-screenshot">
-												<img src="img/apps/blap.jpeg" alt="screenshot" />
-											</div>
-											<div class="single-screenshot">
-												<img src="img/apps/amah.jpg" alt="screenshot" />
-											</div>
-											<div class="single-screenshot">
-												<img src="img/apps/calt.jpg" alt="screenshot" />
-											</div>
-											<div class="single-screenshot">
-												<img src="img/apps/beus.jpg" alt="screenshot" />
-											</div>
-											<div class="single-screenshot">
-												<img src="img/apps/qapp.jpg" alt="screenshot" />
-											</div>
-											<div class="single-screenshot">
-												<img src="img/apps/raydar.jpg" alt="screenshot" />
-											</div>
-											<div class="single-screenshot">
-												<img src="img/apps/orange.jpg" alt="screenshot" />
-											</div>
-											<div class="single-screenshot">
-												<img src="img/apps/citas.jpg" alt="screenshot" />
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section><!-- screenshots section end -->
-								
-									
-					
-						</div>
-
-					
-
-					</div>
-				</section>
-
-
-
-				
-			
-
-
-
-
-       	   	</div>
-
-          	<div class="page pt-blog" data-simplebar>
-            	<section class="container">
-					
-             		<div class="header-page mt-70 mob-mt">
-						<h2>Blog</h2>
-    					<span></span>
-					</div>
-					
-					<div class="row blog-masonry mt-100 mb-50">
-						
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/logo2.png"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                            		<li><a >15 April 2019</a></li>
-                            		<li><a >Lifestyle</a></li>
-                           		</ul>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/logo2.png"></a>
-									<a href="https://www.youtube.com/watch?v=k_okcNVZqqI" class="btn-play"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                            		<li><a >10 March 2019</a></li>
-                            		<li><a >Lifestyle</a></li>
-                           		</ul>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/logo2.png"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                            		<li><a >02 March 2019</a></li>
-                            		<li><a >Work</a></li>
-                            	</ul>
-								<p>Tower Hamlets or mass or members of propaganda bananas real estate. However, a large and a mourning, vel euismod.</p>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/logo2.png"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                            		<li><a >29 March 2019</a></li>
-                            		<li><a >Career</a></li>
-                            	</ul>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/logo2.png"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-									<li><a >14 April 2019</a></li>
-                            		<li><a >Lifestyle</a></li>
-                            	</ul>
-								<p>Tower Hamlets or mass or members of propaganda bananas real estate. However, a large and a mourning, vel euismod.</p>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/logo2.png"></a>
-									<a href="https://www.youtube.com/watch?v=k_okcNVZqqI" class="btn-play"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                           		 	<li><a >29 April 2019</a></li>
-                           		 	<li><a >Career</a></li>
-                        	    </ul>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
-					</div>
-            	</section>
-			</div>
-			 
-         	<div class="page pt-contact" data-simplebar>
-            	<section class="container">
-					
-              		<div class="header-page mt-70 mob-mt">
-						<h2>Contacto</h2>
-    					<span></span>
-					</div>
-					
-					<div class="row mt-100">
-						<div class="col-lg-12 col-sm-12">
-							<div class="contact-form ">
-                        		<form method="post" class="box contact-valid" id="contact-form">
-									<div class="row">
-                            			<div class="col-lg-6 col-sm-12">
-                                			<input type="text" name="name" id="name" class="form-control" placeholder="Nombre *">
-                            			</div>
-                            			<div class="col-lg-6 col-sm-12">
-                                			<input type="email" name="email" id="email" class="form-control" placeholder="Email *">
-                            			</div>
-                            			<div class="col-lg-12 col-sm-12">
-                                			<textarea class="form-control" name="note"  id="note" placeholder="Tu Mensage"></textarea>
-                            			</div>
-                             			<div class="col-lg-12 col-sm-12 text-center">
-                                			<button type="submit" class="btn-st">Enviar Mensaje</button>
-                                			<div id="loader">
-                                    			<i class="fas fa-sync"></i>
-                                			</div>
-                            			</div>
-										<div class="col-lg-12 col-sm-12">
-                            				<div class="error-messages">
-                                				<div id="success">
-													<i class="far fa-check-circle"></i>Gracias! Tu mensaje ha sido enviado.
-												</div>
-                                				<div id="error">
-													<i class="far fa-times-circle"></i>Se produjo un error al enviar el correo electrónico. Por favor, inténtelo de nuevo más tarde.
-												</div>
-											</div>
-                            			</div>
-									</div>
-                    			</form>
-                    		</div>
-						</div>
-					</div>
-					
-					<div class="box contact-info">
-						<div class="row">
-							<div class="col-lg-4 col-sm-12 info">
-								<i class="fas fa-paper-plane"></i>
-         						<p>isc.villavicencio16@gmail.com</p>
-          						<span>Email</span>
-							</div>
-							<div class="col-lg-4 col-sm-12 info">
-								<i class="fas fa-map-marker-alt"></i>
-         						<p>Veracruz México</p>
-          						<span>Direccion</span>
-							</div>	
-							<div class="col-lg-4 col-sm-12 info">
-								<i class="fas fa-phone"></i>
-         						<p>288 120 9736</p>
-          						<span>Telefono</span>
-							</div>	
-						</div>
-					</div>
-					
-					
-            	</section>
-          	</div> 
-        </div>
-      	</div>
-    	</div>
-  		</div>
-		</div>
-		</div>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/isotope.pkgd.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/simplebar.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/jquery.animatedheadline.min.js"></script>
-		<script src="js/jquery.easypiechart.js"></script>
-		<script src="js/jquery.validation.js"></script>
-		<script src="js/tilt.js"></script>
-        <script src="js/main.js"></script>
-
-		<script src="js/jquery.slicknav.min.js"></script>
-		<script src="js/slick.min.js"></script>
-
-		<script>
-			(function ($) {
-	"use strict";
-	
-	/*----------------------------
-    START - Menubar scroll animation
-    ------------------------------ */
-	jQuery(window).on('scroll', function() {
-		if ($(this).scrollTop() > 10) {
-			$('.header').addClass("sticky");
-		} else {
-			$('.header').removeClass("sticky");
-		}
-	});
-	
-	/*----------------------------
-    START - Smooth scroll animation
-    ------------------------------ */
-	$('.mainmenu li a, .logo a,.slicknav_nav li a').on('click', function () {
-		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-		&& location.hostname == this.hostname) {
-		  var $target = $(this.hash);
-		  $target = $target.length && $target
-		  || $('[name=' + this.hash.slice(1) +']');
-		  if ($target.length) {
-			var targetOffset = $target.offset().top;
-			$('html,body')
-			.animate({scrollTop: targetOffset}, 2000);
-		   return false;
-		  }
-		}
-	});
-	
-	/*----------------------------
-    START - Slider activation
-    ------------------------------ */
-	$('.screenshot-wrap').slick({
-		autoplay: true,
-		dots: true,
-		autoplaySpeed: 1000,
-		slidesToShow: 3,
-		centerPadding: '20%',
-		centerMode: true,
-		prevArrow: '',
-		nextArrow: '',
-		responsive: [{
-
-		  breakpoint: 992,
-		  settings: {
-			slidesToShow: 1,
-			centerPadding: '33.3%'
-		  }
-
-		},{
-
-		  breakpoint: 576,
-		  settings: {
-			slidesToShow: 1,
-			centerPadding: '0'
-		  }
-
-		}]
-	});
-	
-	var testimonialSlider = $('.testimonial-wrap');
-	testimonialSlider.owlCarousel({
-		loop:true,
-		dots: true,
-		mouseDrag: false,
-		autoplay: false,
-		autoplayTimeout:4000,
-		nav: false,
-		items: 1,
-	});
-	testimonialSlider.on("translate.owl.carousel", function(){
-		$(".single-testimonial-box img, .author-rating").removeClass("animated zoomIn").css("opacity", "0");
-	});
-	testimonialSlider.on("translated.owl.carousel", function(){
-		$(".single-testimonial-box img, .author-rating").addClass("animated zoomIn").css("opacity", "1");
-	});
-	testimonialSlider.on('changed.owl.carousel', function(property) {
-		var current = property.item.index;
-		var prevRating = $(property.target).find(".owl-item").eq(current).prev().find('.author-img').html();
-		var nextRating = $(property.target).find(".owl-item").eq(current).next().find('.author-img').html();
-		$('.thumb-prev .author-img').html(prevRating);
-		$('.thumb-next .author-img').html(nextRating);
-	});
-	$('.thumb-next').on('click', function() {
-		testimonialSlider.trigger('next.owl.carousel', [300]);
-		return false;
-	});
-	$('.thumb-prev').on('click', function() {
-		testimonialSlider.trigger('prev.owl.carousel', [300]);
-		return false;
-	});
-	
-	
-
-	/*----------------------------
-    START - Counterup
-    ------------------------------ */
-	$('.counter').counterUp({
-		delay: 20,
-		time: 3000
-	});
-	
-	/*----------------------------
-    START - Video
-    ------------------------------ */
-	if($.fn.YTPlayer){
-		$(".player").YTPlayer();
-	}
-	
-	/*----------------------------
-    START - Switcher animation
-    ------------------------------ */
-	$('#toggle-switcher').on('click', function(){
-		if($(this).hasClass('open')){
-			$(this).removeClass('open');
-			$('#switch-style').animate({'right':'-232px'});
-		}else{
-			$(this).addClass('open');
-			$('#switch-style').animate({'right':'0'});
-		}
-	});
-	
-	/*----------------------------
-    START - Preloader
-    ------------------------------ */
-	jQuery(window).on('load', function(){
-		jQuery("#preloader").fadeOut(500);
-	});
-	
-	/*----------------------------
-    START - WOW JS animation
-    ------------------------------ */
-	new WOW().init();
-
-}(jQuery));
-		</script>
-		
- 
-		<script src="js/jquery.ripples-min.js"></script>
-		<script>
-			$('.pt-home').ripples({
-				resolution: 1000,
-				dropRadius: 15,
-				perturbance: 0.02
-			});
-		</script>
-		<script src="js/main-demo.js"></script>
-		<script src="js/wa.js"></script>
     </body>
 </html>
