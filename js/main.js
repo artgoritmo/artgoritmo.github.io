@@ -201,16 +201,18 @@ $(document).ready(function() {
             },
 
             messages: {
-                name: "Please enter your name",
-                email: "Please enter your email address"
+                name: "Agregue su nombre",
+                email: "Agregue su correo"
             },
 
             submitHandler: function (form) {
+                $( "#loader").show();
                 $.ajax({
                     type: "POST",
                     url: "/mail.php",
                     data: $(form).serialize(),
                     success: function () {
+                        msgAlert("success", "Exito!", "Gracias! Tu mensaje ha sido enviado.");
                         $( "#loader").hide();
                         $( "#success").slideDown( "slow" );
                         setTimeout(function() {
@@ -219,6 +221,9 @@ $(document).ready(function() {
                         form.reset();
                     },
                     error: function() {
+
+                        msgAlert("error", "Error!", "Se produjo un error al enviar el correo electrónico. Por favor, inténtelo de nuevo más tarde.");
+
                         $( "#loader").hide();
                         $( "#error").slideDown( "slow" );
                         setTimeout(function() {

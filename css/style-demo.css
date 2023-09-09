@@ -1,60 +1,25 @@
-.style-options {
-    width: 180px;
-    position: fixed;
-    right: -180px;
-    top: 28%;
-    background-color: #fff;
-    z-index: 1000;
-    -webkit-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
-}
+
 
 .style-options.active {
     right: 0;
 }
 
-.style-options .toggle-btn {
-    position: absolute;
-    top: 30px;
-    left: -40px;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px 0 0 30px;
-    border-right: none;
-    cursor: pointer;
-}
+
 
 .style-options .toggle-btn span {
     margin: 0;
     margin: 0 auto;
 }
 
-.style-options .toggle-btn span i {
-    font-size: 23px;
-    -webkit-animation-name: settings;
-    animation-name: settings;
-    -webkit-animation-duration: 1.5s;
-    animation-duration: 1.5s;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
-    color: #0e0f10;
-    line-height: 35px;
-}
+
 
 .style-options .style-menu {
     text-align: center;
     padding: 0;
 }
 
-.style-options .style-menu h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: #0e0f10;
+.temsec{
+    background-color: #0000a35e;
 }
 
 .style-options .style-menu .style-nav h4,
@@ -77,11 +42,8 @@
     text-transform: uppercase;
 }
 
-.style-options .style-menu .style-nav ul li a,
-.style-options .style-menu .style-back ul li a {
-    color: #0e0f10;
-    font-weight: 600;
-    display: block;
+.style-menu{
+    margin-top: -70px;
 }
 
 .style-options .style-menu .style-nav ul li a:hover,

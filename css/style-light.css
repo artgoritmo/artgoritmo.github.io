@@ -32,7 +32,7 @@ Table of Content
 		1. Body and Core Css
 ----------------------------------- */
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+/*@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');*/
 
 * {
 	margin: 0;
@@ -199,10 +199,10 @@ blockquote span img {
 .music-bg {
 	display: block;
 	cursor: pointer;
-	padding: 40px 0;
+	padding: 20px 0;
 	text-align: center;
 	border-color: #fff;
-	border-top: 5px solid #fff;
+	border-top: 5px solid #0e0f10;
 	visibility: hidden;
 	z-index: 10;
 	-webkit-transition: all .3s ease;
@@ -210,7 +210,7 @@ blockquote span img {
 }
 
 .music-bg p {
-	color: #fff;
+	color: #0e0f10;
 	margin: 0;
 	font-size: 13px;
 	font-weight: 600;
@@ -229,7 +229,7 @@ blockquote span img {
     margin: 0px 1px;
     width: 7px;
     height: 5px;
-    background: #fff;
+    background: #0e0f10;
 }
 
 .audio-on .music-bg .lines span:nth-child(1) {
@@ -307,7 +307,8 @@ blockquote span img {
     margin-top: 65px !important;
 }
 .mt-70 {
-    margin-top: 70px !important;
+    /*margin-top: 70px !important;*/
+	margin-top: 20px !important;
 }
 .mt-75 {
     margin-top: 75px !important;
@@ -325,7 +326,7 @@ blockquote span img {
     margin-top: 95px !important;
 }
 .mt-100 {
-    margin-top: 100px !important;
+    margin-top: 50px !important;
 }
 
 /* Custom Margin Bottom */
@@ -644,7 +645,7 @@ blockquote span img {
  	height: 100%;
 	top: 0;
  	left: 0;
-	background-image: url('/img/home-bg.jpg');
+	/*background-image: url('../img/home-bg.jpg');*/
 	-webkit-background-size: cover;
 			background-size: cover;
 	background-position: center;
@@ -867,6 +868,80 @@ blockquote span img {
 			transition: all .3s ease-in-out;
 }
 
+.style-options {
+   
+	color:#fff!important;
+    background-color: 
+   
+}
+
+
+.style-options {
+    width: 180px;
+    position: fixed;
+    right: -180px;
+    top: 28%;
+    background-color: rgba(0, 0, 0, .9);
+    z-index: 1000;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.style-options .toggle-btn {
+    position: absolute;
+    top: 30px;
+    left: -40px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .9);
+    border-radius: 10px 0 0 30px;
+    border-right: none;
+    cursor: pointer;
+}
+
+.style-options .toggle-btn span i {
+    font-size: 23px;
+    -webkit-animation-name: settings;
+    animation-name: settings;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    color: #fff;
+    line-height: 35px;
+}
+
+.style-options .style-menu h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.style-options .style-menu .style-nav ul li a,
+.style-options .style-menu .style-back ul li a {
+    color: #fff;
+    font-weight: 600;
+    display: block;
+}
+
+.page .box,
+.blog-page .box {
+	position: relative;
+	padding: 30px;
+	background-color: #f0f1f5;
+
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
 .page .box-1:hover,
 .page .box-2:hover,
 .blog-page .box:hover {
@@ -950,7 +1025,7 @@ blockquote:before,
     top: 0;
 	overflow: auto;
     overflow-x: hidden;
-	background-color: rgba(14, 15, 16, .6);
+	background-color: #f0f1f59e;
     z-index: 99;
 }
 
@@ -969,7 +1044,8 @@ blockquote:before,
 }
 
 .header-main ul li a {
-	color: #fff;
+	/*color: #fff;*/
+	color: #0e0f10;
 }
 
 #about:target .header-main ul li a,
@@ -994,9 +1070,9 @@ blockquote:before,
 /* Logo */
 .header-main .logo {
     text-align: center;
-	padding: 40px 0;
-	border-right-color: #fff;
-    border-bottom: 5px solid #fff;
+	padding: 30px 0;
+
+    border-bottom: 5px solid #0e0f10;
 }
 
 .header-mobile {
@@ -2773,9 +2849,10 @@ blockquote:before,
 	}
 	.header-main {
 		width: 90px;
-		background-color: rgba(14, 15, 16, 1);
+		/*background-color: rgba(14, 15, 16, 1);*/
+		background-color: #f0f1f59e;
     	-webkit-transition: all .3s ease-in-out;
-				transition: all .3s ease-in-out;
+		transition: all .3s ease-in-out;
 	}
 	.header-mobile {
     	display: block;

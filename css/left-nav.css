@@ -24,6 +24,7 @@
 	transform: translateX(200%) !important;
 }
 
+
 #about:target .pt-about,
 #resume:target .pt-resume,
 #portfolio:target .pt-portfolio,
@@ -33,6 +34,13 @@
 	-ms-transform: translateX(11.1%) !important;
 	transform: translateX(11.1%) !important;
 }
+
+.mostrar{
+	-webkit-transform: translateX(11.1%) !important;
+	-ms-transform: translateX(11.1%) !important;
+	transform: translateX(11.1%) !important;
+}
+
 
 .blog-page .blog-container,
 .blog-list .blog-list-container {
@@ -65,6 +73,12 @@
 	}
 	.blog-page .blog-container {
 		left: 0 !important;
+	}
+
+	.mostrar{
+		-webkit-transform: translateX(0%) !important;
+		-ms-transform: translateX(0%) !important;
+		transform: translateX(0%) !important;
 	}
 }
 

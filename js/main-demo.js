@@ -1,3 +1,17 @@
+$(document).ready(function(){
+    var tem = localStorage.getItem("tema");
+    if(tem == "css/style-light.css"){
+        document.getElementById("tabL").classList.add("temsec");
+        document.getElementById("tabD").classList.remove("temsec");
+        $('link.style-cl').attr('href', tem);
+    }
+    else{
+        document.getElementById("tabL").classList.remove("temsec");
+        document.getElementById("tabD").classList.add("temsec");
+        $('link.style-cl').attr('href', tem);
+    }
+});
+
 $(function() {
 
     $('.style-options').addClass('active');
@@ -12,9 +26,18 @@ $(function() {
         $('.style-options').toggleClass('active');
     });
 
-    $('.theme-style li a').on('click', function(e) {
-        var style_link = $(this).attr('href');
-        $('link.theme-st').attr('href', style_link);
+    $('.style-back li a').on('click', function(e) {
+    var style_link = $(this).attr('href');
+       localStorage.setItem("tema", style_link);
+       if(style_link == "css/style-dark.css"){
+        document.getElementById("tabL").classList.remove("temsec");
+        document.getElementById("tabD").classList.add("temsec");
+        }
+        else{
+            document.getElementById("tabL").classList.add("temsec");
+            document.getElementById("tabD").classList.remove("temsec");
+        }
+        $('link.style-cl').attr('href', style_link);
 
         e.preventDefault();
     });

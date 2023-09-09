@@ -32,7 +32,7 @@ Table of Content
 		1. Body and Core Css
 ----------------------------------- */
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+/*@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');*/
 
 .imgW{
 	content: url(../img/whatsapp.png)!important;
@@ -322,7 +322,8 @@ blockquote span img {
     margin-top: 65px !important;
 }
 .mt-70 {
-    margin-top: 70px !important;
+    /*margin-top: 70px !important;*/
+	margin-top: 20px !important;
 }
 .mt-75 {
     margin-top: 75px !important;
@@ -340,7 +341,7 @@ blockquote span img {
     margin-top: 95px !important;
 }
 .mt-100 {
-    margin-top: 100px !important;
+    margin-top: 50px !important;
 }
 
 /* Custom Margin Bottom */
@@ -654,13 +655,13 @@ blockquote span img {
 }
 
 /* Glitch */
-.glitch {
+.pt-home {
 	position: absolute;
  	width: 100%;
  	height: 100%;
 	top: 0;
  	left: 0;
-	background-image: url('../img/home-bg.jpg');
+	/*background-image: url('../img/home-bg.jpg');*/
 	background-size: cover;
 	-webkit-background-size: cover;
 	background-position: center;
@@ -808,6 +809,7 @@ blockquote span img {
 .blog-page .box {
 	position: relative;
 	padding: 30px;
+	/*background-color: #f0f1f5;*/
 	background-color: rgba(0, 0, 0, .5);
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
@@ -815,6 +817,58 @@ blockquote span img {
 	-moz-transition: all .3s ease-in-out;
 	-o-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
+}
+
+.style-options {
+    width: 180px;
+    position: fixed;
+    right: -180px;
+    top: 28%;
+    background-color: #fff;
+    z-index: 1000;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.style-options .toggle-btn {
+    position: absolute;
+    top: 30px;
+    left: -40px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px 0 0 30px;
+    border-right: none;
+    cursor: pointer;
+}
+
+.style-options .toggle-btn span i {
+    font-size: 23px;
+    -webkit-animation-name: settings;
+    animation-name: settings;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    color: #0e0f10;
+    line-height: 35px;
+}
+
+.style-options .style-menu h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0e0f10;
+}
+
+.style-options .style-menu .style-nav ul li a,
+.style-options .style-menu .style-back ul li a {
+    color: #0e0f10;
+    font-weight: 600;
+    display: block;
 }
 
 .page .box:hover,
