@@ -167,7 +167,15 @@ function onScrollEvent(entries, observer) {
             entry.target.src = src;
             entry.target.classList.add('visible');
         }
+        setTimeout(opr, 1000);
     });
+    
+    
+}
+
+function opr(){
+    console.log("dale");
+    document.getElementById("btnTodos").click();
 }
 
 // Utilizamos como objetivos todos los
@@ -182,4 +190,5 @@ var observer = new IntersectionObserver(onScrollEvent);
 // imágenes.
 targets.forEach(function(entry) {
     observer.observe(entry);
+    
 });

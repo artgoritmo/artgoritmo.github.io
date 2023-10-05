@@ -124,6 +124,16 @@
             .single-screenshot.slick-center img {
                 padding: 35px 20px 55px;
             }
+
+			.lazyLoad {
+    width: 100%;
+    opacity: 0;
+}
+
+.visible {
+    transition: opacity 1000ms ease;
+    opacity: 1;
+}
 		</style>
 
 		<!-- Responsive CSS -->
@@ -132,7 +142,7 @@
         
 
     </head>
-    <body class="audio-off">
+    <body class="audio-off" >
 	    
 	    	<div id="WABoton"></div>
 		<div class="style-options active">
@@ -802,7 +812,7 @@
 					<div class="row mt-100">
 						<div class="col-lg-12 col-sm-12 portfolio-filter">
 							<ul>
-								<li class="active" data-filter="*">Todo</li>
+								<li class="active" id="btnTodos" data-filter="*">Todo</li>
 								<li data-filter=".logos">Logos</li>
 								<li data-filter=".diseños">Web</li>
 								<li data-filter=".paginas">Sitios</li>
@@ -817,7 +827,7 @@
 
 						<div class="item col-lg-3 col-sm-6 logos">
 							<figure style="padding: 25px;">
-								<img alt="img" src="img/logos/art.png" width="100%" height="100%">
+								<img alt="img" data-src="img/logos/art.png" width="100%" height="100%" class="lazyLoad" >
 								<figcaption>
 									<h3>Logo Arturo</h3>
 									<p>Arturo Villavicencio</p><i class="fas fa-image"></i>
@@ -828,7 +838,7 @@
 
 						<div class="item col-lg-3 col-sm-6 logos">
 							<figure style="padding: 25px;">
-								<img alt="img" src="img/logos/dew.png" width="100%" height="100%">
+								<img alt="img" data-src="img/logos/dew.png" width="100%" height="100%" class="lazyLoad" >
 								<figcaption>
 									<h3>Logo Deweblapper</h3>
 									<p>Deweblapper</p><i class="fas fa-image"></i>
@@ -839,7 +849,7 @@
 					
 						<div class="item col-lg-3 col-sm-6 logos">
 							<figure style="padding: 25px;">
-								<img alt="img" src="img/logos/blap.png" width="100%" height="100%">
+								<img alt="img" data-src="img/logos/blap.png" width="100%" height="100%" class="lazyLoad" >
 									<figcaption>
 									<h3>Diseño logo Blapeer</h3>
 									<p>Blapeer</p><i class="fas fa-image"></i>
@@ -850,7 +860,7 @@
 
 						<div class="item col-lg-3 col-sm-6 logos">
 							<figure style="padding: 25px;">
-								<img alt="img" src="img/logos/raydar.png" width="100%" height="100%">
+								<img alt="img" data-src="img/logos/raydar.png" width="100%" height="100%" class="lazyLoad" >
 									<figcaption>
 									<h3>Diseño logo Raydar</h3>
 									<p>Raydar Company</p><i class="fas fa-image"></i>
@@ -861,7 +871,7 @@
 
 						<div class="item col-lg-3 col-sm-6 logos">
 							<figure style="padding: 25px;">
-								<img alt="img" src="img/logos/bora.png" width="100%" height="100%">
+								<img alt="img" data-src="img/logos/bora.png" width="100%" height="100%" class="lazyLoad" >
 									<figcaption>
 									<h3>Diseño logo Bora</h3>
 									<p>Bora Boutique</p><i class="fas fa-image"></i>
@@ -872,7 +882,7 @@
 
 						<div class="item col-lg-3 col-sm-6 logos">
 							<figure style="padding: 25px;">
-								<img alt="img" src="img/logos/breyt.png" width="100%" height="100%">
+								<img alt="img" data-src="img/logos/breyt.png" width="100%" height="100%" class="lazyLoad" >
 									<figcaption>
 									<h3>Diseño logo Breyt</h3>
 									<p>Breyt</p><i class="fas fa-image"></i>
@@ -883,7 +893,7 @@
 
 						<div class="item col-lg-3 col-sm-6 logos">
 							<figure style="padding: 25px;">
-								<img alt="img" src="img/logos/beus.png" width="100%" height="100%">
+								<img alt="img" data-src="img/logos/beus.png" width="100%" height="100%" class="lazyLoad" >
 									<figcaption>
 									<h3>Diseño logo Beus</h3>
 									<p>Beus Autobuces</p><i class="fas fa-image"></i>
@@ -894,7 +904,7 @@
 
 						<div class="item col-lg-3 col-sm-6 logos">
 							<figure style="padding: 25px;">
-								<img alt="img" src="img/logos/bugg.png" width="100%" height="100%">
+								<img alt="img" data-src="img/logos/bugg.png" width="100%" height="100%" class="lazyLoad" >
 									<figcaption>
 									<h3>Diseño logo Bugg</h3>
 									<p>Bugg</p><i class="fas fa-image"></i>
