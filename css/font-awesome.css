@@ -4254,6 +4254,7 @@ readers do not read off random characters that represent icons */
 @font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
+  font-display: swap;
   font-weight: normal;
   font-display: auto;
   src: url("../fonts/fa-brands-400.eot");
@@ -4264,6 +4265,7 @@ readers do not read off random characters that represent icons */
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
+  font-display: swap;
   font-weight: 400;
   font-display: auto;
   src: url("../fonts/fa-regular-400.eot");
@@ -4275,6 +4277,7 @@ readers do not read off random characters that represent icons */
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
+  
   font-weight: 900;
   font-display: auto;
   src: url("../fonts/fa-solid-900.eot");
