@@ -167,15 +167,19 @@ function onScrollEvent(entries, observer) {
             entry.target.src = src;
             entry.target.classList.add('visible');
         }
-        setTimeout(opr, 1000);
+       
     });
     
-    
+   
+}
+
+function verPort(){
+    setTimeout(opr, 1500);
 }
 
 function opr(){
-    console.log("dale");
-    document.getElementById("btnTodos").click();
+        console.log("dale");
+        document.getElementById("btnTodos").click();
 }
 
 // Utilizamos como objetivos todos los
